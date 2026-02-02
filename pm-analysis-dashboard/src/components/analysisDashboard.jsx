@@ -77,7 +77,7 @@ export default function AnalysisDashboard() {
         resource_allocation: null,
         raid_log: null,
       });
-      // Optionally, you can also hide the modal by setting a state variable
+
     } catch (error) {
       console.error('Error uploading files:', error);
       setError(true);
@@ -115,7 +115,7 @@ export default function AnalysisDashboard() {
                       <img
                         src="https://images.unsplash.com/photo-1606836576983-8b458e75221d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         className="card-img-top"
-                        alt={report.report_type} // Use report type for alt text
+
                       />
                       <div className="card-body">
                         <h5 className="card-title fs-4">{capitalizeFirstLetter(report.report_type)} Report</h5> {/* Title with capitalized report type */}

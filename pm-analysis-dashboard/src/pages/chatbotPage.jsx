@@ -3,17 +3,17 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 function ChatbotPage() {
   const { projectId, reportType } = useParams();
-  const navigate = useNavigate(); // Hook to programmatically navigate
-  const [reportData, setReportData] = useState([]); // State to hold report data
-  const [loading, setLoading] = useState(true); // State to track loading status
-  const [error, setError] = useState(false); // State to track error
+  const navigate = useNavigate(); 
+  const [reportData, setReportData] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(false); 
 
   useEffect(() => {
     const fetchReportData = async () => {
       try {
         const response = await axios.get(`http://localhost:8000/api/v1/projects/${projectId}/reports/${reportType}`);
         setReportData(response.data.report_data);
-        console.log(response.data.report_data); // Log the fetched data directly
+        console.log(response.data.report_data); 
       } catch (err) {
         setError(true);
       } finally {
@@ -25,7 +25,7 @@ function ChatbotPage() {
   }, [projectId, reportType]);
 
   useEffect(() => {
-    console.log(reportData); // Log the updated reportData whenever it changes
+    console.log(reportData); 
   }, [reportData]);
 
   return (

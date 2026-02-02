@@ -10,7 +10,7 @@ const Dashboard = () => {
     const getProjects = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/v1/projects');
-        setProjects(response.data); // Assuming the data is in response.data
+        setProjects(response.data); 
       } catch (error) {
         console.error('Error fetching projects:', error);
       } finally {
