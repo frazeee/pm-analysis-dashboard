@@ -1,16 +1,21 @@
 import "./App.css";
-import SideBar from "./components/sidebar";
-import Dashboard from "./components/dashboard";
-import AnalysisDashboard from "./components/analysisDashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProjectsPage from "./pages/projectPage";
+import AnalysisPage from "./pages/analysisPage";
+import ChatbotPage from "./pages/chatbotPage";
 
 
 function App() {
   return (
-    <div className="d-flex">
-      <SideBar />
-      <AnalysisDashboard/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProjectsPage />} />
+        <Route path="analysis" element={<AnalysisPage />} />
+        <Route path="chat" element={<ChatbotPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
