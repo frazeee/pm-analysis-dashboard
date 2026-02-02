@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ProjectsPage />} />
-        <Route path="analysis" element={<AnalysisPage />} />
-        <Route path="chat" element={<ChatbotPage />} />
+        <Route path="/analysis/:projectId" element={<AnalysisPage />} />
+        <Route path="/chat/:projectId/:reportType" element={<ChatbotPage />} />
       </Routes>
     </BrowserRouter>
   );

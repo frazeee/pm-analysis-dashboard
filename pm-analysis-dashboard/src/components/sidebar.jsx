@@ -1,7 +1,7 @@
 const Sidebar = () => {
   const url = window.location.href;
-  const isActiveProjects = url.includes("/") ? "active" : "";
-  const isActiveReports = url.includes("/analysis") ? "active" : "";
+  const isActiveProjects = url.endsWith("/") ? "active" : "";
+
 
   return (
     <div
@@ -25,17 +25,6 @@ const Sidebar = () => {
               <use xlink:href="#speedometer2"></use>
             </svg>
             Projects
-          </a>
-        </li>
-        <li>
-          <a
-            href="/reports"
-            className={`nav-link text-white ${isActiveReports}`}
-          >
-            <svg className="bi me-2" width="16" height="16">
-              <use xlink:href="#table"></use>
-            </svg>
-            Reports
           </a>
         </li>
       </ul>

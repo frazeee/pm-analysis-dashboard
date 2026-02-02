@@ -73,3 +73,12 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #555 transparent;
 }
+
+.bg-body-tertiary{
+  background-color: #252538!important;
+  color: #faf9f6;
+}
+.bg-primary{
+  background-color: #ffe503!important;
+  color: #202030!important;
+}
