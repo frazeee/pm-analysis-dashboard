@@ -3,14 +3,15 @@ export default function AnalysisDashboard() {
     <div className="bg-dark w-100">
       <div className="container py-5">
         <div className="d-flex justify-content-between mb-3">
-          <h1 className="text-white fw-semibold">Analysis</h1>
+          <h1 className="text-white fw-semibold">Reports</h1>
           <button
             className="btn btn-primary btn-md fw-semibold"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            Create Analysis
+            Create Report
           </button>
+          
         </div>
         <div className="row row-cols-3 row-cols-md-3 g-4">
           <div className="col">
@@ -26,13 +27,10 @@ export default function AnalysisDashboard() {
                   This is where we put the analysis description, project,
                   details, and anything relevant to the project itself.
                 </p>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-evenly ">
                   {" "}
                   <button className="btn btn-outline-primary fw-semibold">
-                    View Analysis
-                  </button>
-                  <button className="btn btn-outline-primary fw-semibold">
-                    Chat with Analysis
+                    View Report
                   </button>
                 </div>
               </div>
@@ -52,7 +50,7 @@ export default function AnalysisDashboard() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Choose a report to upload
+                Choose a document to upload
               </h1>
               <button
                 type="button"
@@ -62,13 +60,21 @@ export default function AnalysisDashboard() {
               ></button>
             </div>
             <div className="modal-body">
-              <span className="fw-semibold">Report Type</span>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+              <div className="mb-3">
+                <span className="fw-semibold mb-3">Document Type</span>
+                <select class="form-select " aria-label="Default select example">
+                  <option selected>Choose Document type</option>
+                  <option value="1">Project Plan</option>
+                  <option value="2">Taks List </option>
+                  <option value="3">Milestone Plan</option>
+                  <option value="4">Resource Plan</option>
+                  <option value="5">Project Plan</option>
+                </select>
+              </div>
+              <div class="input-group my-5">
+                <input type="file" class="form-control" id="inputGroupFile02" />
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+              </div>
             </div>
             <div className="modal-footer">
               <button
