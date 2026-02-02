@@ -1,6 +1,6 @@
 export default function Chatbot() {
   return (
-    <section className="w-100 bg-dark">
+<section className="w-100 bg-dark" style={{ minHeight: '100vh' }}>
       <div className="container-fluid p-5">
         <div className="row">
           <div className="d-flex align-items-end w-100">
@@ -16,6 +16,7 @@ export default function Chatbot() {
                   className="pt-3 pe-3"
                   style={{
                     position: "relative",
+                    height: "750px", // Required for overflowY to work
                     overflowY: "auto",
                   }}
                 >
@@ -39,6 +40,16 @@ export default function Chatbot() {
                       </p>
                     </div>
                   </div>
+
+                  {/* Dummy content to demonstrate scroll */}
+                  <div className="d-flex flex-row justify-content-start">
+                    <div>
+                      <p className="p-3 ms-3 mb-4 rounded-3 bg-body-tertiary">
+                        Scroll test: Additional message to trigger the overflow-y.
+                      </p>
+                    </div>
+                  </div>
+                  
                 </div>
 
                 {/* Footer / Input Area */}

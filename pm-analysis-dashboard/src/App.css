@@ -45,3 +45,31 @@ body {
   background-color: #252538 !important;
   color: #faf9f6;
 }
+
+/* Target the specific scrollable container */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;               /* Width of the vertical scrollbar */
+  height: 6px;              /* Height of the horizontal scrollbar */
+}
+
+/* The background of the scrollbar (track) */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;  /* Keeps it clean */
+}
+
+/* The draggable part (thumb) */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #555;         /* Dark gray color */
+  border-radius: 10px;      /* Rounded edges */
+}
+
+/* Hover effect on the thumb */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #888;         /* Lighter gray on hover */
+}
+
+/* Support for Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+}

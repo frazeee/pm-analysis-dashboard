@@ -1,4 +1,8 @@
 const Sidebar = () => {
+  const url = window.location.href;
+  const isActiveProjects = url.includes("/") ? "active" : "";
+  const isActiveReports = url.includes("/analysis") ? "active" : "";
+
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 border-end border-secondary border-opacity-25"
@@ -12,16 +16,11 @@ const Sidebar = () => {
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item">
-          <a href="#" className="nav-link active" aria-current="page">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlink:href="#home"></use>
-            </svg>
-            Home
-          </a>
-        </li>
         <li>
-          <a href="#" className="nav-link text-white">
+          <a
+            href="/projects"
+            className={`nav-link text-white ${isActiveProjects}`}
+          >
             <svg className="bi me-2" width="16" height="16">
               <use xlink:href="#speedometer2"></use>
             </svg>
@@ -29,7 +28,10 @@ const Sidebar = () => {
           </a>
         </li>
         <li>
-          <a href="#" className="nav-link text-white">
+          <a
+            href="/reports"
+            className={`nav-link text-white ${isActiveReports}`}
+          >
             <svg className="bi me-2" width="16" height="16">
               <use xlink:href="#table"></use>
             </svg>
