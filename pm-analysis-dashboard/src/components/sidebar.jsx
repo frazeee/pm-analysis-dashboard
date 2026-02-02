@@ -1,17 +1,14 @@
 const Sidebar = () => {
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100"
+      className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100 border-end border-secondary border-opacity-25"
       style={{ width: "280px" }}
     >
       <a
         href="/"
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
       >
-        <svg className="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-        <span className="fs-4">Sidebar</span>
+        <span className="fs-4 fw-bold ms-5">PMO ASSIST</span>
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
@@ -28,7 +25,7 @@ const Sidebar = () => {
             <svg className="bi me-2" width="16" height="16">
               <use xlink:href="#speedometer2"></use>
             </svg>
-            Dashboard
+            Projects
           </a>
         </li>
         <li>
@@ -36,23 +33,7 @@ const Sidebar = () => {
             <svg className="bi me-2" width="16" height="16">
               <use xlink:href="#table"></use>
             </svg>
-            Orders
-          </a>
-        </li>
-        <li>
-          <a href="#" className="nav-link text-white">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlink:href="#grid"></use>
-            </svg>
-            Products
-          </a>
-        </li>
-        <li>
-          <a href="#" className="nav-link text-white">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlink:href="#people-circle"></use>
-            </svg>
-            Customers
+            Reports
           </a>
         </li>
       </ul>

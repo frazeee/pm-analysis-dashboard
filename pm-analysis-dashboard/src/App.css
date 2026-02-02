@@ -1,0 +1,47 @@
+.raleway-font {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.bg-dark {
+  background-color: #202030 !important;
+}
+
+.btn-primary {
+  color: #202030;
+  background-color: #ffe503;
+  border-color: #ffe503;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  color: #202030 !important;
+  background-color: #ffe505 !important;
+  border-color: #ffe503 !important;
+}
+
+.btn-outline-primary {
+  color: #ffe503 !important;
+  background-color: transparent !important;
+  border-color: #ffe503 !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #202030 !important;
+  background-color: #ffe503 !important;
+  border-color: #ffe503 !important;
+}
+.card {
+  background-color: #252538 !important;
+  color: #faf9f6;
+}
