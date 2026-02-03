@@ -4,29 +4,53 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+  const [projectName, setProjectName] = useState('');
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     const getProjects = async () => {
       try {
         const response = await axios.get('http://localhost:8000/api/v1/projects');
-        setProjects(response.data); 
+        setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
     getProjects();
-  }, []); 
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Prepare the request body
+    const requestBody = {
+      project_name: projectName,
+      description: description,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:8000/api/v1/projects', requestBody);
+      console.log('Project created:', response.data);
+      setProjectName('');
+      setDescription('');
+    } catch (error) {
+      console.error('Error creating project:', error);
+    }
+    finally {
+      window.location.reload();
+    }
+  };
 
   return (
     <div className="bg-dark w-100">
       <div className="container py-5">
         <div className="d-flex justify-content-between mb-3">
           <h1 className="text-white fw-semibold">Projects</h1>
-          <button className="btn btn-primary btn-md fw-semibold">Create Project</button>
+          <button className="btn btn-primary btn-md fw-semibold" data-bs-toggle="modal" data-bs-target="#createModal">Create Project</button>
         </div>
         {loading ? (
           <div className="d-flex justify-content-center align-items-center" style={{ height: '200px' }}>
@@ -61,7 +85,53 @@ const Dashboard = () => {
           </>
         )}
       </div>
+
+      <div className="modal fade" id="createModal" tabIndex="-1" aria-labelledby="createModal" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Create Project</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form onSubmit={handleSubmit}> {/* Move the form tag here */}
+              <div className="modal-body">
+                <div className="mb-3">
+                  <label htmlFor="projectName" className="form-label">Project Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="projectName"
+                    value={projectName}
+                    onChange={(e) => setProjectName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="description" className="form-label">Description</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="submit" className="btn btn-primary">Create Project</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+
+
   );
 };
 

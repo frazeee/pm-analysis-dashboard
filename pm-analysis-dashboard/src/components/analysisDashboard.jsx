@@ -69,8 +69,6 @@ export default function AnalysisDashboard() {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setSuccess(true);
-      // Close the modal by resetting the file inputs
       setFiles({
         project_plan: null,
         pto_calendar: null,
@@ -83,6 +81,7 @@ export default function AnalysisDashboard() {
       setError(true);
     } finally {
       setUploading(false);
+      window.location.reload();
     }
   };
 
@@ -120,7 +119,7 @@ export default function AnalysisDashboard() {
                       <div className="card-body">
                         <h5 className="card-title fs-4">{capitalizeFirstLetter(report.report_type)} Report</h5> {/* Title with capitalized report type */}
                         <p className="card-text">Generated at: {new Date(report.generated_at).toLocaleString()}</p> {/* Date only */}
-                        <div className="d-flex justify-content-evenly">
+                        <div className="d-flex">
                           <Link to={`/chat/${projectId}/${report.report_type}`} className="btn btn-outline-primary fw-semibold">
                             View Report
                           </Link>
@@ -174,7 +173,7 @@ export default function AnalysisDashboard() {
                   <label className="form-label">RAID Log *</label>
                   <input type="file" className="form-control" name="raid_log" onChange={handleFileChange} required />
                 </div>
-                <button type="submit" className="btn btn-primary" disabled={uploading}>
+                <button type="submit" className="btn btn-primary w-100 fw-semibold" disabled={uploading}>
                   {uploading ? 'Uploading...' : 'Submit'}
                 </button>
               </form>
